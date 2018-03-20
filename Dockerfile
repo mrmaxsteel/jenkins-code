@@ -5,8 +5,9 @@ FROM jenkins/jenkins:${VERSION:-LTS}
 RUN echo ${VERSION:-2.0} > /usr/share/jenkins/ref/jenkins.install.InstallUtil.lastExecVersion
 
 # Install docker so we can launch dind containers
+USER root
 RUN apt-get update \
-  && apt-get install \
+  && apt-get install -y \
      apt-transport-https \
      ca-certificates \
      curl \
@@ -18,7 +19,8 @@ RUN apt-get update \
      $(lsb_release -cs) \
      stable" \
   && apt-get update \
-  && apt-get install docker-ce
+  && apt-get install -y docker-ce
+USER jenkins
   
 COPY plugins.txt /usr/share/jenkins/ref/plugins.txt
 RUN /usr/local/bin/install-plugins.sh < /usr/share/jenkins/ref/plugins.txt
