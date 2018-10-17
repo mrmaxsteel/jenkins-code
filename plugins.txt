@@ -35,7 +35,6 @@ github:latest
 scm-api:latest
 workflow-api:latest
 workflow-basic-steps:latest
-ws-cleanup:latest
 authentication-tokens:latest
 workflow-scm-step:latest
 ssh-credentials:latest
