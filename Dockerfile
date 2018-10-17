@@ -1,4 +1,4 @@
-ARG VERSION=2.107.3
+ARG VERSION=2.138.2
 FROM jenkins/jenkins:${VERSION:-LTS}
 
 # Prevent the banner from appearing prompting the user to install additional plugins
